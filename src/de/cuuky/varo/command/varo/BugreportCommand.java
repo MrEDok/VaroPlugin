@@ -16,7 +16,7 @@ import de.cuuky.varo.spigot.updater.VaroUpdateResultSet.UpdateResult;
 public class BugreportCommand extends VaroCommand {
 
 	public BugreportCommand() {
-		super("bugreport", "Hift bei der Fehlersuche und beim Reporten von Bugs", "varo.bug", "bug", "bughelp", "error", "support");
+		super("bugreport", "Helps with troubleshooting and reporting bugs", "varo.bug", "bug", "bughelp", "error", "support");
 	}
 
 	@Override

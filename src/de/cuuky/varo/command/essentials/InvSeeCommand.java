@@ -26,12 +26,12 @@ public class InvSeeCommand implements CommandExecutor {
 		}
 
 		if (!(sender instanceof Player)) {
-			sender.sendMessage(Main.getPrefix() + "Nicht fuer die Konsole!");
+			sender.sendMessage(Main.getPrefix() + "Not for console!");
 			return false;
 		}
 
 		if (Bukkit.getPlayerExact(args[0]) == null) {
-			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7nicht gefunden!");
+			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7not found!");
 			return false;
 		}
 

@@ -1,4 +1,4 @@
-# Die Liste aller Placeholder kannst du mit /varo ph aufrufen!
+# You can call a list of all placeholders with /varo ph !
 header: '%projectname%'
 scoreboard:
 - '%space%'

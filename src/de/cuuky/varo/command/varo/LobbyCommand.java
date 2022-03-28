@@ -17,7 +17,7 @@ public class LobbyCommand extends VaroCommand {
 	private ArrayList<UUID> uuid;
 
 	public LobbyCommand() {
-		super("lobby", "Einstellungen zur Lobby", "varo.lobby");
+		super("lobby", "Lobby settings", "varo.lobby");
 
 		uuid = new ArrayList<>();
 	}
@@ -46,9 +46,9 @@ public class LobbyCommand extends VaroCommand {
 
 			Player p = (Player) sender;
 			if (!uuid.contains(p.getUniqueId())) {
-				sender.sendMessage(Main.getPrefix() + "§7Dieser Command wird eine " + Main.getColorCode() + "Lobby §7um dich herum spawnen, was du nicht rueckgaengig machen kannst.");
-				sender.sendMessage(Main.getPrefix() + "Fuehre diesen Command am besten " + Main.getColorCode() + "Hoch in der Luft §7aus.");
-				sender.sendMessage(Main.getPrefix() + "Gib den Command nochmal ein, um zu " + Main.getColorCode() + "bestaetigen§7.");
+				sender.sendMessage(Main.getPrefix() + "§7This command will create a " + Main.getColorCode() + "Lobby §7around you, you cannot undo this");
+				sender.sendMessage(Main.getPrefix() + "For best result use this command " + Main.getColorCode() + "high in the air.");
+				sender.sendMessage(Main.getPrefix() + "Reenter command to " + Main.getColorCode() + "confirm§7.");
 				uuid.add(p.getUniqueId());
 				return;
 			}
@@ -59,7 +59,7 @@ public class LobbyCommand extends VaroCommand {
 				size = Integer.valueOf(args[1]);
 				height = Integer.valueOf(args[2]);
 			} catch (Exception e) {
-				sender.sendMessage(Main.getPrefix() + "§7Die Hoehe und die Groesse muessen eine Zahl sein!");
+				sender.sendMessage(Main.getPrefix() + "§7The height and the size must be a number!");
 				return;
 			}
 
@@ -68,11 +68,11 @@ public class LobbyCommand extends VaroCommand {
 			new LobbyGenerator(p.getLocation(), height, size);
 		} else if (args[0].equalsIgnoreCase("setSpawn") || args[0].equalsIgnoreCase("set")) {
 			Main.getVaroGame().setLobby(((Player) sender).getLocation());
-			sender.sendMessage(Main.getPrefix() + "§7Location fuer die " + Main.getColorCode() + "Lobby §7erfolgreich gesetzt!");
+			sender.sendMessage(Main.getPrefix() + "§7Location for " + Main.getColorCode() + "Lobby §7successfully set!");
 			return;
 		} else if (args[0].equalsIgnoreCase("removeSpawn") || args[0].equalsIgnoreCase("remove")) {
 			Main.getVaroGame().setLobby(null);
-			sender.sendMessage(Main.getPrefix() + "§7Location fuer die " + Main.getColorCode() + "Lobby §7erfolgreich entfernt!");
+			sender.sendMessage(Main.getPrefix() + "§7Location for " + Main.getColorCode() + "Lobby §7successfully removed!");
 			return;
 		} else
 			sender.sendMessage(Main.getPrefix() + "§7Not found. §7Type /lobby for help.");

@@ -14,7 +14,7 @@ public class IntroCommand extends VaroCommand {
 	private SuroStart suroStart;
 
 	public IntroCommand() {
-		super("intro", "Startet das SURO Intro", "varo.intro");
+		super("intro", "Starts the SURO Intro", "varo.intro");
 	}
 
 	@Override

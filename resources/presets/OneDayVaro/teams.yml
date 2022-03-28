@@ -1,15 +1,15 @@
 # WARNUNG: DIE RICHTIGE CONFIG BEFINDET SICH UNTEN, NICHT DIE '#' VOR DEN EINTRAEGEN WEGNEHMEN!
 #  Hier ist die Beschreibung der Config:
 # ----------- Teams -----------
-# Beschreibung: Hier kannst du Einstellungen zu Teams vornehmen.
+# Desc: You can modify teams here
 # 
 #  chatTrigger:
-#   Definiert den Buchstaben am Anfang einer
-#   Nachricht, der den Teamchat ausloest.
+#   Teamchat trigger
+#   prefix
 #   Default-Value: #
 # 
 #  friendlyFire:
-#   Zufuegen von Schaden unter Teamkameraden.
+#   Allow friendly fire
 #   Default-Value: false
 # 
 #  teamPlaceSpawn:

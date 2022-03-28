@@ -41,8 +41,8 @@ public class Broadcaster {
 
 		if (!file.exists()) {
 			ArrayList<String> sb = new ArrayList<>();
-			sb.add("&7Testnachricht Nummer 1");
-			sb.add("&7Du kannst hier unendlich viele Nachrichten einfuegen, die dann Random ausgewaehlt werden.");
+			sb.add("&7Testmessage 1");
+			sb.add("&7You can add infinite messages that will be called randomly.");
 
 			if (!cfg.contains("messages"))
 				cfg.addDefault("messages", sb);
@@ -83,7 +83,7 @@ public class Broadcaster {
 	private static String[] getAdMessage() {
 		String[] messages = new String[] { "", "", "" };
 		messages[0] = "&7-----------------------------------------";
-		messages[1] = "&7Du moechtest auch ein &5(OneDay)Varo &7veranstalten? Link zum Plugin: " + Main.DISCORD_INVITE;
+		messages[1] = "&7You also want to set up a &5(OneDay)Varo &7? Link to the plugin: " + Main.DISCORD_INVITE;
 		messages[2] = "&7-----------------------------------------";
 		return messages;
 	}

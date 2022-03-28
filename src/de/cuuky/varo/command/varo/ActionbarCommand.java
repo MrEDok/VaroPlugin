@@ -11,13 +11,13 @@ import de.cuuky.varo.entity.player.VaroPlayer;
 public class ActionbarCommand extends VaroCommand {
 
 	public ActionbarCommand() {
-		super("actionbar", "Aktiviert/Deaktiviert die Actionbar-Zeit", "varo.actionbar", "ab");
+		super("actionbar", "Enables/disables the action bar time", "varo.actionbar", "ab");
 	}
 
 	@Override
 	public void onCommand(CommandSender sender, VaroPlayer vp, Command cmd, String label, String[] args) {
 		if (vp == null) {
-			sender.sendMessage(Main.getPrefix() + "Du musst ein Spieler sein!");
+			sender.sendMessage(Main.getPrefix() + "You must be a player!");
 			return;
 		}
 

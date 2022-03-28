@@ -48,7 +48,7 @@ public class CombatlogCheck {
         }
 
         vp.onEvent(BukkitEventType.KICKED);
-        new Alert(AlertType.COMBATLOG, vp.getName() + " hat sich im Kampf ausgeloggt!");
+        new Alert(AlertType.COMBATLOG, vp.getName() + " combat logged!");
         if (ConfigSetting.STRIKE_ON_COMBATLOG.getValueAsBoolean()) {
             vp.getStats().addStrike(new Strike("CombatLog", vp, "CONSOLE"));
             Main.getDataManager().getVaroLoggerManager().getEventLogger().println(LogType.ALERT, ConfigMessages.ALERT_COMBAT_LOG_STRIKE.getValue(null, vp));

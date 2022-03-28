@@ -13,7 +13,7 @@ import de.cuuky.varo.game.lobby.LobbyItem;
 public class AbortCommand extends VaroCommand {
 
 	public AbortCommand() {
-		super("abort", "Bricht den Startcountdown ab", "varo.abort", "abbruch", "abbrechen", "stop");
+		super("abort", "Cancellates the start countdown", "varo.abort", "abbruch", "abbrechen", "stop");
 	}
 
 	@Override

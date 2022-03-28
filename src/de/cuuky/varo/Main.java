@@ -71,6 +71,21 @@ public class Main extends JavaPlugin {
 		System.out.println("#                                                                          #");
 		System.out.println("############################################################################");
 
+		System.out.println(" $$$$$$\\    $$\\      $$\\                         ");
+		System.out.println("$$  __$$\\   $$ |      $$ |                        ");
+		System.out.println("$$ /  $$ | $$$$$$\\   $$$$$$\\     $$$$$$\\    $$$$$$\\  ");
+		System.out.println("$$ |  $$ |\\_$$  _| \\_$$  _|     $$  __$$\\  $$  __$$\\ ");
+		System.out.println("$$ |  $$ |   $$ |      $$ |       $$$$$$$$ |  $$ |  \\__|");
+		System.out.println("$$ |  $$ |   $$ |$$\\  $$ |$$\\   $$   ____|  $$ |      ");
+		System.out.println(" $$$$$$  |  \\$$$$  | \\$$$$  |  \\$$$$$$$\\  $$ |      ");
+		System.out.println(" \\______/    \\____/    \\____/   \\_______|\\__|      ");
+		System.out.println(" ");
+		System.out.println("Let me have this for wasting my brain please");
+
+
+
+
+
 		System.out.println(CONSOLE_PREFIX);
 		System.out.println(CONSOLE_PREFIX + "Enabling " + getPluginName() + "...");
 		

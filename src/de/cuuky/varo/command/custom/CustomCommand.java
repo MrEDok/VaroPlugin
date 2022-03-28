@@ -80,6 +80,6 @@ public class CustomCommand extends VaroCommand {
             String message = String.format("%s%s", (ConfigSetting.CUSTOMCOMMAND_USEPREFIX.getValueAsBoolean()) ? Main.getPrefix() : "", this.output);
             message = Main.getLanguageManager().replaceMessage(message, vp);
             vp.sendMessage(message);
-        } else sender.sendMessage(Main.getConsolePrefix() + "Du musst ein Spieler sein!");
+        } else sender.sendMessage(Main.getConsolePrefix() + "You have to be a player!");
     }
 }

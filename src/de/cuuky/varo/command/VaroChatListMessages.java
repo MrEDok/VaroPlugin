@@ -31,11 +31,11 @@ public class VaroChatListMessages<T> extends DefaultChatMessageSupplier<T> {
 
     @Override
     public String getInvalidPage(int wrongPage) {
-        return Main.getPrefix() + "Seitenzahl falsch!";
+        return Main.getPrefix() + "Page number wrong!";
     }
 
     @Override
     public String getNoEntriesFound() {
-        return Main.getPrefix() + "Keine Einträge gefunden!";
+        return Main.getPrefix() + "No entries found!";
     }
 }

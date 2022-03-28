@@ -33,7 +33,7 @@ public class SpawnCommand implements CommandExecutor {
 		loc = player.getWorld().getSpawnLocation();
 
 		if (player.getWorld().getEnvironment() == World.Environment.THE_END) {
-			sender.sendMessage(Main.getPrefix() + "§7Im Ende kann dir der Spawn nicht angegeben werden.");
+			sender.sendMessage(Main.getPrefix() + "§7In the end, the spawn cannot be given to you.");
 			return false;
 		} else if (player.getWorld().getEnvironment() == World.Environment.NETHER) {
 			sender.sendMessage(Main.getPrefix() + ConfigMessages.SPAWN_NETHER.getValue(vp).replace("%x%", loc.getBlockX() + "").replace("%y%", loc.getBlockY() + "").replace("%z%", loc.getBlockZ() + ""));

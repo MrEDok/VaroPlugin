@@ -22,7 +22,7 @@ public class PlaceholderCommand extends VaroCommand {
     private final PageableChatBuilder<MessagePlaceholder> listBuilder;
 
     public PlaceholderCommand() {
-        super("placeholder", "Zeigt alle Platzhalter fuer messages, scoreboard etc.", "varo.placeholder", "ph");
+        super("placeholder", "Shows all placeholders for messages, scoreboard etc.", "varo.placeholder", "ph");
 
         this.listBuilder = new PageableChatBuilder<MessagePlaceholder>()
                 .messages(new VaroChatListMessages<>(mp ->
@@ -35,17 +35,17 @@ public class PlaceholderCommand extends VaroCommand {
         if (args.length == 0) {
             sender.sendMessage(Main.getPrefix() + Main.getProjectName() + " §7Placeholder Befehle:");
             sender.sendMessage(Main.getPrefix());
-            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " placeholder §7info <name> §8- §7Zeigt Wert und Info vom gegebenen Placeholder");
-            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " placeholder §7general §8- §7Zeigt alle ueberall anwendbaren Placeholder");
-            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " placeholder §7player §8- §7Zeigt alle im Spielerkontext anwendbaren Placeholder");
+            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " placeholder §7info <name> §8- §7Shows value and info of the given placeholder");
+            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " placeholder §7general §8- §7Shows all placeholders that can be used everywhere");
+            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " placeholder §7player §8- §7Shows all placeholders applicable in the player context");
             sender.sendMessage(Main.getPrefix());
-            sender.sendMessage(Main.getPrefix() + "Player-Beispiele: Killmessage, Scoreboard, Kickmessage, Tab");
+            sender.sendMessage(Main.getPrefix() + "Player examples: Killmessage, Scoreboard, Kickmessage, Tab");
             return;
         }
 
         if (args[0].equalsIgnoreCase("info") || args[0].equalsIgnoreCase("get")) {
             if (args.length != 2) {
-                sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " placeholder §7get <name> §8- §7Zeigt Wert vom gegebenen Placeholder");
+                sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " placeholder §7get <name> §8- §7Shows value from given placeholder");
                 return;
             }
 
@@ -55,7 +55,7 @@ public class PlaceholderCommand extends VaroCommand {
                     mp = mp1;
 
             if (mp == null) {
-                sender.sendMessage(Main.getPrefix() + "Placeholder nicht gefunden!");
+                sender.sendMessage(Main.getPrefix() + "Placeholder not found!");
                 return;
             }
 
@@ -64,7 +64,7 @@ public class PlaceholderCommand extends VaroCommand {
                 value = "(" + vp.getName() + ") " + mp.replacePlaceholder(mp.getIdentifier(), vp);
 
             sender.sendMessage(Main.getPrefix() + Main.getColorCode() + mp.getIdentifier() + " §7Info§8:");
-            sender.sendMessage(Main.getPrefix() + "§7Wert§8: " + Main.getColorCode() + value);
+            sender.sendMessage(Main.getPrefix() + "§7Value§8: " + Main.getColorCode() + value);
             sender.sendMessage(Main.getPrefix() + "§7Refresh-Delay§8: " + Main.getColorCode() + mp.getDefaultRefresh() + "s");
             return;
         }
@@ -76,7 +76,7 @@ public class PlaceholderCommand extends VaroCommand {
             try {
                 type = MessagePlaceholderType.valueOf(args[0].toUpperCase(Locale.ROOT));
             } catch (IllegalArgumentException e) {
-                sender.sendMessage(Main.getPrefix() + "Falsche Argumente! §c/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " ph");
+                sender.sendMessage(Main.getPrefix() + "Wrong arguments! §c/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " ph");
                 return;
             }
 
@@ -85,11 +85,11 @@ public class PlaceholderCommand extends VaroCommand {
         chat.send(sender);
 
         if (type == MessagePlaceholderType.GENERAL && chat.getPage() == 1) {
-            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "%topplayer-<RANK>% §8- §7Ersetzt durch den Spieler, der an RANK auf dem Leaderboard ist");
-            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "%topplayerkills-<RANK>% §8- §7Ersetzt durch die Kills des Spielers, der an RANK auf dem Leaderboard ist");
-            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "%topteam-<RANK>% §8- §7Ersetzt durch das Team, das an RANK auf dem Leaderboard ist");
-            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "%topteamkills-<RANK>% §8- §7Ersetzt durch die Kills des Teams, das an RANK auf dem Leaderboard ist");
-            sender.sendMessage(Main.getPrefix() + "Zusätzlich werden alle Einstellungen mit %<ConfigEintrag>% ersetzt");
+            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "%topplayer-<RANK>% §8- §7Replaced by the player who is at RANK on the leaderboard");
+            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "%topplayerkills-<RANK>% §8- §7Replaced by the kills of the player who is at RANK on the leaderboard");
+            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "%topteam-<RANK>% §8- §7Replaced by the team that is at RANK on the leaderboard");
+            sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "%topteamkills-<RANK>% §8- §7Replaced by the kills of the team that is at RANK on the leaderboard.");
+            sender.sendMessage(Main.getPrefix() + "In addition, all settings are replaced with %<ConfigEntry>%");
         }
     }
 }

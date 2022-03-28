@@ -22,7 +22,7 @@ public class PlayerCommand extends VaroCommand {
 	private PageableChatBuilder<VaroPlayer> listBuilder;
 
 	public PlayerCommand() {
-		super("player", "Verwaltet die Spieler", "varo.player");
+		super("player", "Manages the players", "varo.player");
 
 		this.listBuilder = new PageableChatBuilder<>(VaroPlayer::getVaroPlayers)
 				.messages(new VaroChatListMessages<>(player ->
@@ -47,13 +47,13 @@ public class PlayerCommand extends VaroCommand {
 
 		if (args.length == 1 && VaroPlayer.getPlayer(args[0]) != null) {
 			if (!(sender instanceof Player)) {
-				sender.sendMessage(Main.getPrefix() + "§7Du musst Spieler sein, um diesen Command nutzen zu koennen!");
+				sender.sendMessage(Main.getPrefix() + "§7You must be a player to use this command!");
 				return;
 			}
 
 			VaroPlayer vps = VaroPlayer.getPlayer(args[0]);
 			if (vps == null) {
-				sender.sendMessage(Main.getPrefix() + "Spieler nicht gefunden!");
+				sender.sendMessage(Main.getPrefix() + "Player not found!");
 				return;
 			}
 
@@ -69,7 +69,7 @@ public class PlayerCommand extends VaroCommand {
 			if (args.length >= 2 && args[1].equalsIgnoreCase("@a")) {
 				for (VaroPlayer pl : VaroPlayer.getVaroPlayers()) {
 					if (pl.isOnline())
-						pl.getPlayer().kickPlayer("§cDein Account wurde resettet!\n§7Joine erneut, um dich zu registrieren.");
+						pl.getPlayer().kickPlayer("§cYour account has been reset!\n§7Join again to register.");
 					pl.getStats().loadDefaults();
 					if (pl.getTeam() != null)
 						pl.getTeam().removeMember(pl);
@@ -78,19 +78,19 @@ public class PlayerCommand extends VaroCommand {
 			}
 
 			if (vps == null) {
-				sender.sendMessage(Main.getPrefix() + "§7Spieler nicht gefunden!");
+				sender.sendMessage(Main.getPrefix() + "§7Player not found!");
 				return;
 			}
 
 			if (vps.isOnline())
-				vps.getPlayer().kickPlayer("§7Dein Account wurde resettet!\nJoine erneut, um dich zu registrieren.");
+				vps.getPlayer().kickPlayer("§7Your account has been reset!\nJoin again to register.");
 
 			if (vps.isOnline())
-				vps.getPlayer().kickPlayer("§cDein Account wurde resettet!\n§7Joine erneut, um dich zu registrieren.");
+				vps.getPlayer().kickPlayer("§cYour account has been reset!\n§7Join again to register.");
 			vps.getStats().loadDefaults();
 			if (vps.getTeam() != null)
 				vps.getTeam().removeMember(vps);
-			sender.sendMessage(Main.getPrefix() + "§7Account von §c" + vps.getName() + " §7wurde erfolgreich resettet!");
+			sender.sendMessage(Main.getPrefix() + "§7Account of §c" + vps.getName() + " §7was successfully reset!");
 			return;
 		} else if (args[0].equalsIgnoreCase("kill")) {
 			if (args.length >= 2 && args[1].equalsIgnoreCase("@a")) {
@@ -103,12 +103,12 @@ public class PlayerCommand extends VaroCommand {
 			}
 
 			if (vps == null) {
-				sender.sendMessage(Main.getPrefix() + "§7Spieler nicht gefunden!");
+				sender.sendMessage(Main.getPrefix() + "§7Player not found!");
 				return;
 			}
 
 			if (vps.getStats().getState() == PlayerState.DEAD) {
-				sender.sendMessage(Main.getPrefix() + "Dieser Spieler ist bereits tot!");
+				sender.sendMessage(Main.getPrefix() + "This player is already dead!");
 				return;
 			}
 
@@ -117,7 +117,7 @@ public class PlayerCommand extends VaroCommand {
 			else
 				vps.getStats().setState(PlayerState.DEAD);
 
-			sender.sendMessage(Main.getPrefix() + "§7" + vps.getName() + " §7erfolgreich getoetet!");
+			sender.sendMessage(Main.getPrefix() + "§7" + vps.getName() + " §7successfully killed!");
 			return;
 		} else if (args[0].equalsIgnoreCase("remove")) {
 			if (args.length >= 2 && args[1].equalsIgnoreCase("@a")) {
@@ -131,7 +131,7 @@ public class PlayerCommand extends VaroCommand {
 			}
 
 			if (vps == null) {
-				sender.sendMessage(Main.getPrefix() + "§7Spieler nicht gefunden!");
+				sender.sendMessage(Main.getPrefix() + "§7Player not found!");
 				return;
 			}
 
@@ -139,11 +139,11 @@ public class PlayerCommand extends VaroCommand {
 				vps.getPlayer().kickPlayer(ConfigMessages.JOIN_KICK_NOT_USER_OF_PROJECT.getValue(vp));
 
 			vps.delete();
-			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + args[1] + " §7wurde erfolgreich aus " + Main.getColorCode() + Main.getProjectName() + " §7entfernt!");
+			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + args[1] + " §7was successfully removed from " + Main.getColorCode() + Main.getProjectName());
 			return;
 		} else if (args[0].equalsIgnoreCase("add")) {
 			if (args.length <= 1) {
-				sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " player add §7<Spieler1> <Spieler2> ...");
+				sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " player add §7<Player1> <Player2> ...");
 				return;
 			}
 
@@ -152,7 +152,7 @@ public class PlayerCommand extends VaroCommand {
 					continue;
 
 				if (VaroPlayer.getPlayer(arg) != null) {
-					sender.sendMessage(Main.getPrefix() + Main.getColorCode() + arg + " §7existiert bereits!");
+					sender.sendMessage(Main.getPrefix() + Main.getColorCode() + arg + " §7already exists!");
 					continue;
 				}
 
@@ -160,41 +160,41 @@ public class PlayerCommand extends VaroCommand {
 				try {
 					uuid = Main.getInstance().getUUID(arg).toString();
 				} catch (Exception e) {
-					sender.sendMessage(Main.getPrefix() + "§c" + arg + " wurde nicht gefunden.");
+					sender.sendMessage(Main.getPrefix() + "§c" + arg + " not found!");
 					String newName;
 					try {
 						newName = UUIDUtils.getNamesChanged(arg);
-						sender.sendMessage(Main.getPrefix() + "§cEin Spieler, der in den letzten 30 Tagen " + arg + " hiess, hat sich in §7" + newName + " §cumbenannt.");
-						sender.sendMessage(Main.getPrefix() + "Benutze \"/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " team add\", um diese Person einem Team hinzuzufuegen.");
+						sender.sendMessage(Main.getPrefix() + "§cA player who in the last 30 days was named " + arg + " is now: §7" + newName);
+						sender.sendMessage(Main.getPrefix() + "Use \"/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " team add\", to add this person to a team.");
 					} catch (Exception f) {
-						sender.sendMessage(Main.getPrefix() + "§cIn den letzten 30 Tagen gab es keinen Spieler mit diesem Namen.");
+						sender.sendMessage(Main.getPrefix() + "§cIn the last 30 days there was no player with this name.");
 					}
 					continue;
 				}
 
 				new VaroPlayer(arg, uuid);
-				sender.sendMessage(Main.getPrefix() + Main.getColorCode() + arg + " §7wurde erfolgreich zu " + Main.getColorCode() + Main.getProjectName() + " §7hinzugefuegt!");
+				sender.sendMessage(Main.getPrefix() + Main.getColorCode() + arg + " §7was successfully added to " + Main.getColorCode() + Main.getProjectName());
 			}
 		} else if (args[0].equalsIgnoreCase("respawn")) {
 			if (args.length >= 2 && args[1].equalsIgnoreCase("@a")) {
 				for (VaroPlayer pl : VaroPlayer.getVaroPlayers())
 					pl.getStats().setState(PlayerState.ALIVE);
-				sender.sendMessage(Main.getPrefix() + "§7Erfolgreich alle Spieler wiederbelebt!");
+				sender.sendMessage(Main.getPrefix() + "§7Successfully revived all players!");
 				return;
 			}
 
 			if (vps == null) {
-				sender.sendMessage(Main.getPrefix() + "§7Spieler nicht gefunden!");
+				sender.sendMessage(Main.getPrefix() + "§7Player not found!");
 				return;
 			}
 
 			if (vps.getStats().isAlive()) {
-				sender.sendMessage(Main.getPrefix() + "§a" + vps.getName() + " §7lebt bereits!");
+				sender.sendMessage(Main.getPrefix() + "§a" + vps.getName() + " §7already lives!");
 				return;
 			}
 
 			vps.getStats().setState(PlayerState.ALIVE);
-			sender.sendMessage(Main.getPrefix() + "§a" + vps.getName() + " §7erfolgreich wiederbelebt!");
+			sender.sendMessage(Main.getPrefix() + "§a" + vps.getName() + " §7successfully revived!");
 			return;
 		} else if (args[0].equalsIgnoreCase("list")) {
             this.listBuilder.page(args.length >= 2 ? args[1] : "1").build().send(sender);

@@ -19,7 +19,7 @@ import net.dv8tion.jda.api.entities.User;
 public class DiscordCommand extends VaroCommand {
 
 	public DiscordCommand() {
-		super("discord", "Der Hauptbefehl fuer den DiscordBot", null);
+		super("discord", "The main command for the DiscordBot", null);
 	}
 
 	@Override
@@ -162,7 +162,7 @@ public class DiscordCommand extends VaroCommand {
 				}
 
 			} else
-				sender.sendMessage(Main.getPrefix() + "§7/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " discord bypass <add/remove> <Spielername>");
+				sender.sendMessage(Main.getPrefix() + "§7/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " discord bypass <add/remove> <Playername>");
 		} else if (args[0].equalsIgnoreCase("reload")) {
 			Main.getBotLauncher().getDiscordbot().disconnect();
 			Main.getBotLauncher().getDiscordbot().connect();

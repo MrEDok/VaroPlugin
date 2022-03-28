@@ -21,7 +21,7 @@ public class AutoStartCommand extends VaroCommand {
 	 */
 
 	public AutoStartCommand() {
-		super("autostart", "Startet das Varo automatisch", "varo.autostart", "as");
+		super("autostart", "Starts the Varo automatically", "varo.autostart", "as");
 	}
 
 	@Override

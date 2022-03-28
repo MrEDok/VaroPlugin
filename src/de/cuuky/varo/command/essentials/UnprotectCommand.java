@@ -33,12 +33,12 @@ public class UnprotectCommand implements CommandExecutor {
 				VaroCancelAble.removeCancelAble(player, CancelAbleType.PROTECTION);
 			}
 
-			sender.sendMessage(Main.getPrefix() + "Erfolgreich alle Spieler unprotected!");
+			sender.sendMessage(Main.getPrefix() + "Successfully unprotected all players!");
 			return false;
 		}
 
 		if (Bukkit.getPlayerExact(args[0]) == null) {
-			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7nicht gefunden!");
+			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7not found!");
 			return false;
 		}
 
@@ -46,7 +46,7 @@ public class UnprotectCommand implements CommandExecutor {
 		VaroPlayer target = VaroPlayer.getPlayer(player);
 		VaroCancelAble.removeCancelAble(target, CancelAbleType.PROTECTION);
 
-		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7erfolgreich unprotected!");
+		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7successfully unprotected!");
 		return false;
 	}
 }

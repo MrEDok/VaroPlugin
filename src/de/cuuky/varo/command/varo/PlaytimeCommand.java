@@ -11,7 +11,7 @@ import de.cuuky.varo.entity.player.VaroPlayer;
 
 public class PlaytimeCommand extends VaroCommand {
     public PlaytimeCommand() {
-        super("playtime", "Zeigt die restliche Spielzeit", null, "time");
+        super("playtime", "Shows the remaining playing time", null, "time");
     }
 
     @Override

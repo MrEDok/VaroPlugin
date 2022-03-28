@@ -36,25 +36,25 @@ public class FreezeCommand implements CommandExecutor {
 				new VaroCancelAble(CancelAbleType.FREEZE, player);
 			}
 
-			sender.sendMessage(Main.getPrefix() + "Erfolgreich alle Spieler gefreezed!");
+			sender.sendMessage(Main.getPrefix() + "Froze all players!");
 			return false;
 		}
 
 		if (Bukkit.getPlayerExact(args[0]) == null) {
-			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7nicht gefunden!");
+			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7not found!");
 			return false;
 		}
 
 		Player player = Bukkit.getPlayerExact(args[0]);
 		VaroPlayer target = VaroPlayer.getPlayer(player);
 		if (player.isOp()) {
-			sender.sendMessage(Main.getPrefix() + "Ein Admin kann nicht gefreezed werden!");
+			sender.sendMessage(Main.getPrefix() + "An Admin cannot be frozen!");
 			return false;
 		}
 
 		new VaroCancelAble(CancelAbleType.FREEZE, target);
 
-		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7erfolgreich gefreezed!");
+		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7successfully frozen!");
 		return false;
 	}
 }

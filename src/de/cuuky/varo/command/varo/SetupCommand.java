@@ -12,7 +12,7 @@ import de.cuuky.varo.gui.admin.setuphelp.SetupHelpGUI;
 public class SetupCommand extends VaroCommand {
 
 	public SetupCommand() {
-		super("setup", "Öffnet die Setuphilfe", "varo.setup");
+		super("setup", "Opens SetupHelp", "varo.setup");
 	}
 
 	@Override

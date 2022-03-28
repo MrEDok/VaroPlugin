@@ -13,7 +13,7 @@ import de.cuuky.varo.game.world.setup.AutoSetup;
 public class AutoSetupCommand extends VaroCommand {
 
 	public AutoSetupCommand() {
-		super("autosetup", "Setzt den Server automatisch auf", "varo.autosetup");
+		super("autosetup", "Automatically sets the server up", "varo.autosetup");
 	}
 
 	@Override

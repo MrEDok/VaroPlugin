@@ -13,7 +13,7 @@ import de.cuuky.varo.entity.team.VaroTeam;
 public class BackpackCommand extends VaroCommand {
 
 	public BackpackCommand() {
-		super("backpack", "Oeffnet das Backpack von dir oder einem Spieler", null, "bp");
+		super("backpack", "Opens the backpack of you or a player", null, "bp");
 	}
 
 	private void playerBackPack(CommandSender sender, VaroPlayer vp, String[] args, int number) {
