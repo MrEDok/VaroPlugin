@@ -28,16 +28,16 @@ public class VaroCommandListener implements CommandExecutor {
 
         VaroCommand command = VaroCommand.getCommand(args[0]);
         if (command == null) {
-            sender.sendMessage(Main.getPrefix() + "§7Kommando '" + Main.getColorCode() + args[0] + "§7' nicht gefunden!");
+            sender.sendMessage(Main.getPrefix() + "§7Command '" + Main.getColorCode() + args[0] + "§7' not found!");
             return false;
         }
 
         if (command instanceof CustomCommand && ((CustomCommand) command).isUnused()) {
             if (sender.hasPermission("varo.useCustoms")) {
-                sender.sendMessage(player == null ? Main.getConsolePrefix() : Main.getPrefix() + ChatColor.GRAY + "Dieser Command ist " + Main.getColorCode() + "deaktiviert" + ChatColor.GRAY + ",  aber du kannst ihn\n" + Main.getPrefix() + "benutzen:");
+                sender.sendMessage(player == null ? Main.getConsolePrefix() : Main.getPrefix() + ChatColor.GRAY + "This Command is " + Main.getColorCode() + "deactivated" + ChatColor.GRAY + ",  but you can use:\n" + Main.getPrefix());
                 command.onCommand(sender, player, cmd, label, JavaUtils.removeString(args, 0));
             } else
-                sender.sendMessage(Main.getPrefix() + "§7Kommando '" + Main.getColorCode() + args[0] + "§7' nicht gefunden!");
+                sender.sendMessage(Main.getPrefix() + "§7Command '" + Main.getColorCode() + args[0] + "§7' not found!");
             return false;
         }
 

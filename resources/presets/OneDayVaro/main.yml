@@ -46,16 +46,16 @@
 #   Default-Value: true
 # 
 #  supportPluginAds:
-#   Werbung wird im Plugin mit eingebaut,was das Plugin,
-#   also mich, supportet. Danke an alle, die das aktivieren :3
+#   Advertisements are in the plugin to support me
+#   Thanks to whoever activates it :3
 #   Default-Value: false
 # 
 #  tablist:
-#   Ob das Plugin die Tablist modfizieren soll
+#   Modify the tab list
 #   Default-Value: true
 # 
 #  unregisteredPlayerJoin:
-#   Ob unregistrierte Spieler joinen duerfen.
+#   Allow unregistered joins
 #   Default-Value: true
 # -------------------------
 

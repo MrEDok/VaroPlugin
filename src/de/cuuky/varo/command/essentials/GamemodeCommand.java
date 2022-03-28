@@ -37,7 +37,7 @@ public class GamemodeCommand implements CommandExecutor {
 			} else {
 				player = Bukkit.getPlayerExact(args[1]);
 				if (player == null) {
-					sender.sendMessage(Main.getPrefix() + "§7Spieler " + args[1] + "§7 nicht gefunden.");
+					sender.sendMessage(Main.getPrefix() + "§7Spieler " + args[1] + "§7 not found.");
 					return false;
 				}
 			}
@@ -46,7 +46,7 @@ public class GamemodeCommand implements CommandExecutor {
 			try {
 				mode = Integer.valueOf(args[0]);
 			} catch (Exception e) {
-				sender.sendMessage(Main.getPrefix() + "§7Du hast keinen gueltigen Gamemode angegeben!");
+				sender.sendMessage(Main.getPrefix() + "§7You did not enter a valid gamemode!");
 				return false;
 			}
 
@@ -63,7 +63,7 @@ public class GamemodeCommand implements CommandExecutor {
 				break;
 			case 3:
 				if (!VersionUtils.getVersion().isHigherThan(BukkitVersion.ONE_7)) {
-					sender.sendMessage(Main.getPrefix() + "Nicht verfuegbar vor der 1.8!");
+					sender.sendMessage(Main.getPrefix() + "Not accessable before 1.8!");
 					return false;
 				}
 
@@ -71,7 +71,7 @@ public class GamemodeCommand implements CommandExecutor {
 				// bei 1.7 kommen
 				break;
 			default:
-				sender.sendMessage(Main.getPrefix() + "§7Die Zahl muss 0-3 betragen!");
+				sender.sendMessage(Main.getPrefix() + "§7Number has to be 0-3!");
 				return false;
 			}
 
@@ -79,15 +79,15 @@ public class GamemodeCommand implements CommandExecutor {
 				player.setGameMode(gm);
 
 				if (args.length == 1) {
-					sender.sendMessage(Main.getPrefix() + "§7Du bist nun im Gamemode " + Main.getColorCode() + gm.toString() + "§7!");
+					sender.sendMessage(Main.getPrefix() + "§7You are now in gamemode " + Main.getColorCode() + gm.toString() + "§7!");
 				} else {
-					sender.sendMessage(Main.getPrefix() + "§7" + player.getName() + " ist nun im Gamemode " + Main.getColorCode() + "" + gm.toString() + "§7!");
+					sender.sendMessage(Main.getPrefix() + "§7" + player.getName() + " is not in gamemode " + Main.getColorCode() + "" + gm.toString() + "§7!");
 				}
 			} else {
 				for (Player p : Bukkit.getOnlinePlayers()) {
 					p.setGameMode(gm);
 				}
-				sender.sendMessage(Main.getPrefix() + "§7Alle Spieler sind nun im Gamemode " + Main.getColorCode() + gm.toString() + "§7!");
+				sender.sendMessage(Main.getPrefix() + "§7All placers are now in gamemode " + Main.getColorCode() + gm.toString() + "§7!");
 			}
 
 		} else

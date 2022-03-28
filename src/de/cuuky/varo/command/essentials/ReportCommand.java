@@ -21,7 +21,7 @@ public class ReportCommand implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (!ConfigSetting.REPORTSYSTEM_ENABLED.getValueAsBoolean()) {
-			sender.sendMessage(Main.getPrefix() + "§cReports §7wurden in der Config deaktiviert!");
+			sender.sendMessage(Main.getPrefix() + "§cReports §7were deactivated in the Config!");
 			return false;
 		}
 
@@ -48,23 +48,23 @@ public class ReportCommand implements CommandExecutor {
 
 		Player reported = Bukkit.getPlayer(args[0]);
 		if (reported == null) {
-			sender.sendMessage(Main.getPrefix() + "Dieser Spieler ist nicht online!");
+			sender.sendMessage(Main.getPrefix() + "This player is not online!");
 			return false;
 		}
 
 		if (reported == player) {
-			sender.sendMessage(Main.getPrefix() + "Du kannst dich nicht selber reporten >:(");
+			sender.sendMessage(Main.getPrefix() + "Did you just try to report yourself? monkey.");
 			return false;
 		}
 
 		if (!ConfigSetting.REPORT_STAFF_MEMBER.getValueAsBoolean() && reported.hasPermission("varo.reports")) {
-			sender.sendMessage(Main.getPrefix() + "Du darfst keine Teammitgleider reporten!");
+			sender.sendMessage(Main.getPrefix() + "You are not allowed to report team members!");
 			return false;
 		}
 
 		if (this.timings.containsKey(player)) {
 			if ((System.currentTimeMillis() - this.timings.get(player)) / 1000 <= ConfigSetting.REPORT_SEND_DELAY.getValueAsInt()) {
-				sender.sendMessage(Main.getPrefix() + "Warte zwischen den Reports bitte " + ConfigSetting.REPORT_SEND_DELAY.getValueAsInt() + "s");
+				sender.sendMessage(Main.getPrefix() + "Wait between Reports " + ConfigSetting.REPORT_SEND_DELAY.getValueAsInt() + "s");
 				return false;
 			}
 		}

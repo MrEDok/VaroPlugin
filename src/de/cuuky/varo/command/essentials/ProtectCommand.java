@@ -32,12 +32,12 @@ public class ProtectCommand implements CommandExecutor {
 			for (VaroPlayer player : VaroPlayer.getOnlinePlayer())
 				new VaroCancelAble(CancelAbleType.PROTECTION, player);
 
-			sender.sendMessage(Main.getPrefix() + "Erfolgreich alle Spieler protected!");
+			sender.sendMessage(Main.getPrefix() + "Successfully protected all players!");
 			return false;
 		}
 
 		if (Bukkit.getPlayerExact(args[0]) == null) {
-			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7nicht gefunden!");
+			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7not found!");
 			return false;
 		}
 
@@ -45,7 +45,7 @@ public class ProtectCommand implements CommandExecutor {
 		VaroPlayer target = VaroPlayer.getPlayer(player);
 		new VaroCancelAble(CancelAbleType.PROTECTION, target);
 
-		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7erfolgreich protected!");
+		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7successfully protected!");
 		return false;
 	}
 }

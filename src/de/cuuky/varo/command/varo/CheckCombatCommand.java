@@ -12,13 +12,13 @@ import de.cuuky.varo.entity.player.VaroPlayer;
 public class CheckCombatCommand extends VaroCommand {
 
     public CheckCombatCommand() {
-        super("checkcombat", "Überprüft ob du dich im Combat befindest", "varo.checkcombat", "combat", "combatlog", "cl", "cc", "cls", "combatlogstatus");
+        super("checkcombat", "Checks if you are in Combat", "varo.checkcombat", "combat", "combatlog", "cl", "cc", "cls", "combatlogstatus");
     }
 
     @Override
     public void onCommand(CommandSender sender, VaroPlayer vp, Command cmd, String label, String[] args) {
         if (vp == null) {
-            sender.sendMessage(Main.getPrefix() + "Du musst ein Spieler sein!");
+            sender.sendMessage(Main.getPrefix() + "You must be a player!");
             return;
         }
 

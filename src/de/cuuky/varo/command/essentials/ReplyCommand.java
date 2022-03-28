@@ -21,7 +21,7 @@ public class ReplyCommand implements CommandExecutor {
 		}
 
 		if (!MessageCommand.lastChat.containsKey(sender.getName())) {
-			sender.sendMessage(Main.getPrefix() + "Letzter Chat konnte " + Main.getColorCode() + "nicht §7gefunden werden.");
+			sender.sendMessage(Main.getPrefix() + "Last chat " + Main.getColorCode() + "not §7found.");
 			return false;
 		}
 
@@ -29,13 +29,13 @@ public class ReplyCommand implements CommandExecutor {
 		Player to = Bukkit.getPlayerExact(to1);
 
 		if (to == null) {
-			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + to1 + " §7ist nicht mehr online!");
+			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + to1 + " §7is no longer online!");
 			return false;
 		}
 
 		String message = JavaUtils.getArgsToString(args, " ");
-		to.sendMessage(Main.getColorCode() + sender.getName() + " §8-> §7Dir§8: §f" + message);
-		sender.sendMessage("§7Du §8-> " + Main.getColorCode() + to.getName() + "§8: §f" + message);
+		to.sendMessage(Main.getColorCode() + sender.getName() + " §8-> §7You§8: §f" + message);
+		sender.sendMessage("§7You §8-> " + Main.getColorCode() + to.getName() + "§8: §f" + message);
 		if (MessageCommand.lastChat.containsKey(to.getName()))
 			MessageCommand.lastChat.remove(to.getName());
 

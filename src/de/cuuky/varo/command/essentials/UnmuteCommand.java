@@ -33,12 +33,12 @@ public class UnmuteCommand implements CommandExecutor {
 				VaroCancelAble.removeCancelAble(player, CancelAbleType.MUTE);
 			}
 
-			sender.sendMessage(Main.getPrefix() + "Erfolgreich alle Spieler entmuted!");
+			sender.sendMessage(Main.getPrefix() + "Successfully unmuted all players!");
 			return false;
 		}
 
 		if (Bukkit.getPlayerExact(args[0]) == null) {
-			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7nicht gefunden!");
+			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7not found!");
 			return false;
 		}
 
@@ -46,7 +46,7 @@ public class UnmuteCommand implements CommandExecutor {
 		VaroPlayer target = VaroPlayer.getPlayer(player);
 		VaroCancelAble.removeCancelAble(target, CancelAbleType.MUTE);
 
-		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7erfolgreich entmuted!");
+		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7successfully unmuted!");
 		return false;
 	}
 }

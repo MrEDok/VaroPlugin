@@ -36,25 +36,25 @@ public class MuteCommand implements CommandExecutor {
 				new VaroCancelAble(CancelAbleType.MUTE, player);
 			}
 
-			sender.sendMessage(Main.getPrefix() + "Erfolgreich alle Spieler gemuted!");
+			sender.sendMessage(Main.getPrefix() + "Successfully muted all players!");
 			return false;
 		}
 
 		if (Bukkit.getPlayerExact(args[0]) == null) {
-			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7nicht gefunden!");
+			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7not found!");
 			return false;
 		}
 
 		Player player = Bukkit.getPlayerExact(args[0]);
 		if (player.isOp()) {
-			sender.sendMessage(Main.getPrefix() + "Ein Admin kann nicht gemutet werden!");
+			sender.sendMessage(Main.getPrefix() + "An Admin cannot be muted!");
 			return false;
 		}
 
 		VaroPlayer target = VaroPlayer.getPlayer(player);
 		new VaroCancelAble(CancelAbleType.MUTE, target);
 
-		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7erfolgreich gemuted!");
+		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7successfully muted!");
 		return false;
 	}
 }

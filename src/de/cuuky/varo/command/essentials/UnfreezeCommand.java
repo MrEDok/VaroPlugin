@@ -33,19 +33,19 @@ public class UnfreezeCommand implements CommandExecutor {
 				VaroCancelAble.removeCancelAble(player, CancelAbleType.FREEZE);
 			}
 
-			sender.sendMessage(Main.getPrefix() + "Erfolgreich alle Spieler entfreezed!");
+			sender.sendMessage(Main.getPrefix() + "Successfully de-freezed all players!");
 			return false;
 		}
 
 		if (Bukkit.getPlayerExact(args[0]) == null) {
-			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7nicht gefunden!");
+			sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7not found!");
 			return false;
 		}
 
 		Player player = Bukkit.getPlayerExact(args[0]);
 		VaroPlayer target = VaroPlayer.getPlayer(player);
 		VaroCancelAble.removeCancelAble(target, CancelAbleType.FREEZE);
-		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7erfolgreich entfreezed!");
+		sender.sendMessage(Main.getPrefix() + "§7" + args[0] + " §7successfully de-freezed!");
 		return false;
 	}
 }

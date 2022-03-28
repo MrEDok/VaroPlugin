@@ -11,23 +11,23 @@ import de.cuuky.varo.game.VaroGame;
 public class StartCommand extends VaroCommand {
 
 	public StartCommand() {
-		super("start", "Startet das Varo", "varo.start");
+		super("start", "Start the Varo", "varo.start");
 	}
 
 	@Override
 	public void onCommand(CommandSender sender, VaroPlayer vp, Command cmd, String label, String[] args) {
 		VaroGame game = Main.getVaroGame();
 		if (game.isStarting()) {
-			sender.sendMessage(Main.getPrefix() + "Das Spiel startet bereits!");
+			sender.sendMessage(Main.getPrefix() + "The game is already starting!");
 			return;
 		}
 
 		if (game.hasStarted()) {
-			sender.sendMessage(Main.getPrefix() + "Das Spiel wurde bereits gestartet!");
+			sender.sendMessage(Main.getPrefix() + "The game has already been started!");
 			return;
 		}
 
 		game.prepareStart();
-		sender.sendMessage(Main.getPrefix() + "Spiel erfolgreich gestartet!");
+		sender.sendMessage(Main.getPrefix() + "Game started successfully!");
 	}
 }

@@ -18,7 +18,7 @@ import de.cuuky.varo.entity.team.VaroTeam;
 public class ExportCommand extends VaroCommand {
 
 	public ExportCommand() {
-		super("export", "Optionen zum Exportieren", "varo.export", "Exportiert, Teams, Spieler etc.");
+		super("export", "Export options", "varo.export", "Exportiert, Teams, Spieler etc.");
 	}
 
 	@Override

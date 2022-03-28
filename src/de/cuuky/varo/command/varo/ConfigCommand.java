@@ -17,7 +17,7 @@ import de.cuuky.varo.gui.admin.config.ConfigSectionGUI;
 public class ConfigCommand extends VaroCommand {
 
 	public ConfigCommand() {
-		super("config", "Hauptbefehl fuer die Config", "varo.config", "configuration");
+		super("config", "Main command for Config", "varo.config", "configuration");
 	}
 
 	@Override

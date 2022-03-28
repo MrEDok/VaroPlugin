@@ -21,18 +21,18 @@ import de.cuuky.varo.entity.player.VaroPlayer;
 public class ResetCommand extends VaroCommand {
 
 	public ResetCommand() {
-		super("reset", "Setzt ausgewaehlte Teile des Servers zurueck", "varo.reset");
+		super("reset", "Resets selected parts of the server", "varo.reset");
 	}
 
 	@Override
 	public void onCommand(CommandSender sender, VaroPlayer vp, Command cmd, String label, String[] args) {
 		if (args.length == 0) {
 			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " reset §7<Modifier1> <Modifier2> ...");
-			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "Modifier 1: §7Resettet den kompletten Plugin Ordner");
-			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "Modifier 2: §7Resettet logs + stats (keine configs)");
-			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "Modifier 3: §7Loescht alle Welten");
+			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "Modifier 1: §7Resets the complete plugin folder");
+			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "Modifier 2: §7Resets logs + stats (no configs)");
+			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "Modifier 3: §7Deletes all worlds");
 			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "Example: §7/" + ConfigSetting.COMMAND_VARO_NAME.getValueAsString() + " reset 2 3 - Loescht alle Stats und Welten");
-			sender.sendMessage(Main.getPrefix() + "§cWarnung: §7Der Server wird nach dem Vorgang gestoppt");
+			sender.sendMessage(Main.getPrefix() + "§cWarning: §7The server is stopped after the operation");
 			return;
 		}
 
@@ -57,7 +57,7 @@ public class ResetCommand extends VaroCommand {
 			try {
 				mod = Integer.parseInt(arg);
 			} catch (NumberFormatException e) {
-				sender.sendMessage(Main.getPrefix() + arg + " ist keine Zahl!");
+				sender.sendMessage(Main.getPrefix() + arg + " is no number!");
 				continue;
 			}
 
@@ -80,7 +80,7 @@ public class ResetCommand extends VaroCommand {
 				VersionUtils.getVersionAdapter().forceClearWorlds();
 				break;
 			default:
-				sender.sendMessage(Main.getPrefix() + "Modifier §c" + arg + " §7nicht gefunden!");
+				sender.sendMessage(Main.getPrefix() + "Modifier §c" + arg + " §7not found!");
 				break;
 			}
 

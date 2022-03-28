@@ -12,7 +12,7 @@ import de.cuuky.varo.entity.player.VaroPlayer;
 public class ScoreboardCommand extends VaroCommand {
 
 	public ScoreboardCommand() {
-		super("scoreboard", "Aktiviert/Deaktiviert das Scoreboard", "varo.scoreboard", "sb");
+		super("scoreboard", "Enables/disables the scoreboard", "varo.scoreboard", "sb");
 	}
 
 	@Override

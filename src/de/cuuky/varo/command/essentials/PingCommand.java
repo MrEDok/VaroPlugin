@@ -17,7 +17,7 @@ public class PingCommand implements CommandExecutor {
 		VaroPlayer vp = (sender instanceof Player ? VaroPlayer.getPlayer((Player) sender) : null);
 		if (args.length == 0) {
 			if (!(sender instanceof Player)) {
-				sender.sendMessage(Main.getPrefix() + "Du musst ein Spieler sein!");
+				sender.sendMessage(Main.getPrefix() + "You must be a player!");
 				return false;
 			}
 
@@ -30,11 +30,11 @@ public class PingCommand implements CommandExecutor {
 
 			Player p = Bukkit.getPlayerExact(args[0]);
 			if (p == null) {
-				sender.sendMessage(Main.getPrefix() + Main.getColorCode() + args[0] + " §7nicht gefunden!");
+				sender.sendMessage(Main.getPrefix() + Main.getColorCode() + args[0] + " §7not found!");
 				return false;
 			}
 
-			sender.sendMessage(Main.getPrefix() + "§7Der Ping von " + Main.getColorCode() + args[0] + " §7betraegt " + Main.getColorCode() + String.valueOf(VaroPlayer.getPlayer(p).getVersionAdapter().getPing()) + "ms§7!");
+			sender.sendMessage(Main.getPrefix() + "§7The ping of " + Main.getColorCode() + args[0] + " §7is " + Main.getColorCode() + String.valueOf(VaroPlayer.getPlayer(p).getVersionAdapter().getPing()) + "ms§7!");
 		} else
 			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + "/ping §7[Player]");
 

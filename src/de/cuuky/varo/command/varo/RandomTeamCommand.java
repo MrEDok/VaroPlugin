@@ -12,7 +12,7 @@ import de.cuuky.varo.utils.VaroUtils;
 public class RandomTeamCommand extends VaroCommand {
 
 	public RandomTeamCommand() {
-		super("randomteam", "Gibt allen Spielern, die noch kein Team haben, einen zufaelligen Teampartner mit Groesse", "varo.randomteam", "rt");
+		super("randomteam", "Gives all players who do not yet have a team a random team partner with size", "varo.randomteam", "rt");
 	}
 
 	@Override

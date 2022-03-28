@@ -12,7 +12,7 @@ import de.cuuky.varo.game.state.GameState;
 public class RestartCommand extends VaroCommand {
 
 	public RestartCommand() {
-		super("restart", "Restartet das Projekt", "varo.restart");
+		super("restart", "Restart the Projekt", "varo.restart");
 	}
 
 	@Override

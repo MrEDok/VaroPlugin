@@ -25,24 +25,24 @@ public class MessageCommand implements CommandExecutor {
 		}
 
 		if (!Main.getVaroGame().hasStarted() && !sender.hasPermission("varo.setup")) {
-			sender.sendMessage(Main.getPrefix() + "Du kannst nicht als nicht-Admin vor dem " + Main.getProjectName() + "-Start §7privat schreiben.");
+			sender.sendMessage(Main.getPrefix() + "As a non-admin you cannot message before " + Main.getProjectName() + "§7has started.");
 			return false;
 		}
 
 		Player to = Bukkit.getPlayerExact(args[0]);
 		if (to == null) {
-			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + args[0] + " §7nicht gefunden!");
+			sender.sendMessage(Main.getPrefix() + Main.getColorCode() + args[0] + " §7not found!");
 			return false;
 		}
 
 		if (sender.getName().equals(to.getName())) {
-			sender.sendMessage(Main.getPrefix() + "Nein.");
+			sender.sendMessage(Main.getPrefix() + "No.");
 			return false;
 		}
 
 		String message = JavaUtils.getArgsToString(JavaUtils.removeString(args, 0), " ");
-		to.sendMessage(Main.getColorCode() + sender.getName() + " §8-> §7Dir§8: §f" + message);
-		sender.sendMessage("§7Du §8-> " + Main.getColorCode() + to.getName() + "§8: §f" + message);
+		to.sendMessage(Main.getColorCode() + sender.getName() + " §8-> §7You§8: §f" + message);
+		sender.sendMessage("§7You §8-> " + Main.getColorCode() + to.getName() + "§8: §f" + message);
 		if (MessageCommand.lastChat.containsKey(to.getName()))
 			MessageCommand.lastChat.remove(to.getName());
 

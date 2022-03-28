@@ -37,7 +37,7 @@ public class BorderCommand implements CommandExecutor {
             if (args[0].equalsIgnoreCase("center")) {
                 if (p != null) {
                     worldHandler.getVaroWorld(p.getWorld()).getVaroBorder().setBorderCenter(p.getLocation());
-                    p.sendMessage(Main.getPrefix() + "Zentrum der Border gesetzt!");
+                    p.sendMessage(Main.getPrefix() + "Center of border placed!");
                 } else sender.sendMessage("Only for players!");
                 return true;
             }
